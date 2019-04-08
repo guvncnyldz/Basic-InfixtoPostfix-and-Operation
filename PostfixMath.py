@@ -32,7 +32,7 @@ def ControlOperation(operation):
             stack.push(i)
         elif i == ")":
             stack.pop()
-        elif i in usableChar or isNumber(i):
+        elif i in usableChar or IsNumber(i):
             continue
         else:
             return False
@@ -54,11 +54,11 @@ def Operation(postfixString):
     while i < len(postfixString): 
         if postfixString[i] == "|":
             i+=1
-        elif isNumber(postfixString[i]):
+        elif IsNumber(postfixString[i]):
             while True:
                 currentNum += postfixString[i]
                 i+=1
-                if isNumber(postfixString[i]):
+                if IsNumber(postfixString[i]):
                     break
                 else:
                     stack.push(currentNum)
@@ -67,7 +67,7 @@ def Operation(postfixString):
         else:
             num2 = float(stack.pop())
             num1 = float(stack.pop())
-            result = doMath(num1, postfixString[i], num2)
+            result = DoMath(num1, postfixString[i], num2)
             stack.push(result)
             i+=1
        
@@ -93,10 +93,10 @@ def Translation(opString):
                     break
                 else:
                     postfix += temp
-        elif not isNumber(i):
+        elif not IsNumber(i):
             postfix += "|"
             for j in range(0,stack.size()):
-                if isWeak(i,stack): 
+                if IsWeak(i,stack): 
                     temp = stack.pop()
                     postfix += temp
             stack.push(i)
@@ -116,7 +116,7 @@ def GetOperator(op):
         }[op]
 
 def DoMath(num1, oper, num2):
-    return get_operator(oper)(num1, num2)
+    return GetOperator(oper)(num1, num2)
 
 def IsWeak(character,stack):
             
