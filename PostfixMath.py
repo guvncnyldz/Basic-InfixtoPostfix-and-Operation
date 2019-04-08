@@ -107,7 +107,7 @@ def Translation(opString):
     print("Postfix: ", postfix)
     Operation(postfix)
         
-def get_operator(op):
+def GetOperator(op):
     return {
         '+' : operator.add,
         '-' : operator.sub,
@@ -115,10 +115,10 @@ def get_operator(op):
         '/' : operator.truediv,
         }[op]
 
-def doMath(num1, oper, num2):
+def DoMath(num1, oper, num2):
     return get_operator(oper)(num1, num2)
 
-def isWeak(character,stack):
+def IsWeak(character,stack):
             
     temp = ""
     if not stack.isEmpty():
@@ -136,7 +136,7 @@ def isWeak(character,stack):
             stack.push(temp)
             return False
 
-def isNumber(character):
+def IsNumber(character):
     
     numberArray = ['0','1','2','3','4','5','6','7','8','9']
     
