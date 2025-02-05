@@ -1,41 +1,60 @@
-# Basic-InfixtoPostfix-and-Operation
-Convert infix to postfix and do math
+# Basic Infix to Postfix Conversion and Evaluation
 
-#### Input: 
-{<br/>
-(((20+5)x2)/6)x(10+8x(3+10)-9)<br/>
-}<br/>
-#### Output: 
+This program converts mathematical expressions from **infix notation** to **postfix notation** and evaluates the result.
 
-{<br/>
-Operation:  (((20+5)x2)/6)x(10+8x(3+10)-9)<br/>
-Postfix:  20|5+|2x|6/|10|8|3|10+|x9-+x<br/>
-Result:  875.0000000000001<br/>
-}<br/>
+## Features
+- Converts infix expressions to postfix
+- Evaluates the mathematical result
+- Detects incorrect expressions
 
-#### Input: 
-{<br/>
-(2x(5+3)<br/>
-}<br/>
-#### Output: 
+## Input & Output Examples
 
-{<br/>
-Wrong Operation<br/>
-}<br/>
+### ✅ Valid Input & Output
+#### Example 1
+**Input:**
+```plaintext
+(((20+5)x2)/6)x(10+8x(3+10)-9)
+```
 
-#### Input: 
-{<br/>
-(2x(5+3))<br/>
-}<br/>
-#### Output: 
+**Output:**
+```plaintext
+Operation:  (((20+5)x2)/6)x(10+8x(3+10)-9)
+Postfix:  20|5+|2x|6/|10|8|3|10+|x9-+x
+Result:  875.0000000000001
+```
 
-{<br/>
-Operation:  (2x(5+3))<br/>
-Postfix:  2|5|3+x<br/>
-Result:  16.0<br/>
-}<br/>
+---
 
-- - - - - - - - - - - 
-"x" is actually "*"!
-- - - - - - - - - - -
+#### Example 2
+**Input:**
+```plaintext
+(2x(5+3))
+```
 
+**Output:**
+```plaintext
+Operation:  (2x(5+3))
+Postfix:  2|5|3+x
+Result:  16.0
+```
+
+---
+
+### ❌ Invalid Input
+#### Example 3
+**Input:**
+```plaintext
+(2x(5+3)
+```
+
+**Output:**
+```plaintext
+Wrong Operation
+```
+
+---
+
+## Important Notes
+- The character **'x'** is used for multiplication, but it is actually interpreted as **'*'**.
+- Parentheses **must be balanced** for the expression to be valid.
+- The program follows the **operator precedence** rules for correct evaluation.
